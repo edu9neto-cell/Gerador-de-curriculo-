@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Currículo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+  <!-- 1. Cabeçalho com nome do sistema e menu -->
+  <header class="topo">
+    <p class="marca">Gerador de <span>Currículo</span></p>
+    <nav class="menu">
+      <a href="#formulario">Preencher</a>
+      <a href="#resultado">Meu currículo</a>
+      <a href="#dicas">Dicas</a>
+    </nav>
+  </header>
+ 
+  <!-- 2. Apresentação do sistema -->
+  <section class="apresentacao">
+    <h1>Seu primeiro currículo em poucos minutos</h1>
+    <p>Preencha os campos, clique em Gerar currículo e o Python monta um currículo organizado, pronto para imprimir.</p>
+    <a class="botao" href="#formulario">Começar agora</a>
+  </section>
+ 
+  <main class="conteudo">
+ 
+    <!-- 3. Formulário: tudo o que o Python vai receber -->
+    <form id="formulario" class="formulario" method="post" action="/">
+ 
+      <div class="avisos">
+        {{MENSAGENS}}
+      </div>
+ 
+      <fieldset class="bloco">
+        <legend>1. Dados pessoais</legend>
+        <label for="nome">Nome completo *</label>
+        <input type="text" id="nome" name="nome"
+               value="{{NOME}}" maxlength="60">
+ 
+        <label for="cargo">Cargo ou objetivo *</label>
+        <input type="text" id="cargo" name="cargo"
+               value="{{CARGO}}" maxlength="60"
+               placeholder="Ex.: Estágio em Desenvolvimento">
+        <div class="duas-colunas">
+          <div>
+            <label for="email">E-mail *</label>
+            <input type="text" id="email" name="email"
+                   value="{{EMAIL}}" maxlength="60">
+          </div>
+          <div>
+            <label for="telefone">Telefone com DDD</label>
+            <input type="text" id="telefone" name="telefone"
+                   value="{{TELEFONE}}" maxlength="20">
+          </div>
+        </div>
+ 
+        <label for="cidade">Cidade e estado</label>
+        <input type="text" id="cidade" name="cidade"
+               value="{{CIDADE}}" maxlength="40"
+               placeholder="Ex.: Barreiros, PE">
+      </fieldset>
+ 
+      <fieldset class="bloco">
+        <legend>2. Resumo profissional</legend>
+        <label for="resumo">Fale de você em poucas linhas</label>
+        <textarea id="resumo" name="resumo" rows="4"
+                  maxlength="400">{{RESUMO}}</textarea>
+        <p class="dica-campo">Até 400 caracteres.</p>
+      </fieldset>
+ 
+      <fieldset class="bloco">
+        <legend>3. Formação</legend>
+        <label for="curso">Curso *</label>
+        <input type="text" id="curso" name="curso"
+               value="{{CURSO}}" maxlength="60">
+ 
+        <label for="instituicao">Instituição *</label>
+        <input type="text" id="instituicao" name="instituicao"
+               value="{{INSTITUICAO}}" maxlength="60">
+ 
+        <label for="ano">Ano de conclusão</label>
+        <input type="text" id="ano" name="ano"
+               value="{{ANO}}" maxlength="4">
+ 
+        <p class="rotulo">Situação *</p>
+        <label class="opcao">
+          <input type="radio" name="situacao" value="cursando"
+                 {{MARCAR_CURSANDO}}> Cursando
+        </label>
+        <label class="opcao">
+          <input type="radio" name="situacao" value="concluido"
+                 {{MARCAR_CONCLUIDO}}> Concluído
+        </label>
+      </fieldset>
+ 
+      <fieldset class="bloco">
+        <legend>4. Experiência ou projeto</legend>
+        <p class="dica-campo">Ainda não trabalhou? Coloque um
+           projeto da escola, como o Cardápio Digital.</p>
+        <label for="exp_titulo">Função ou nome do projeto</label>
+        <input type="text" id="exp_titulo" name="exp_titulo"
+               value="{{EXP_TITULO}}" maxlength="60">
+ 
+        <div class="duas-colunas">
+          <div>
+            <label for="exp_local">Empresa ou escola</label>
+            <input type="text" id="exp_local" name="exp_local"
+                   value="{{EXP_LOCAL}}" maxlength="60">
+          </div>
+          <div>
+            <label for="exp_periodo">Período</label>
+            <input type="text" id="exp_periodo" name="exp_periodo"
+                   value="{{EXP_PERIODO}}" maxlength="30">
+          </div>
+        </div>
+
+        <label for="exp_descricao">O que você fez</label>
+        <textarea id="exp_descricao" name="exp_descricao" rows="3"
+                  maxlength="300">{{EXP_DESCRICAO}}</textarea>
+      </fieldset>
+ 
+      <fieldset class="bloco">
+        <legend>5. Habilidades e idioma</legend>
+        <p class="rotulo">Marque pelo menos uma habilidade *</p>
+        <div class="grade-opcoes">
+          <label class="opcao"><input type="checkbox" name="hab"
+            value="html" {{HAB_HTML}}> HTML</label>
+          <label class="opcao"><input type="checkbox" name="hab"
+            value="css" {{HAB_CSS}}> CSS</label>
+          <label class="opcao"><input type="checkbox" name="hab"
+            value="python" {{HAB_PYTHON}}> Python</label>
+          <label class="opcao"><input type="checkbox" name="hab"
+            value="sql" {{HAB_SQL}}> Banco de dados (SQL)</label>
+          <label class="opcao"><input type="checkbox" name="hab"
+            value="git" {{HAB_GIT}}> Git e GitHub</label>
+          <label class="opcao"><input type="checkbox" name="hab"
+            value="office" {{HAB_OFFICE}}> Pacote Office</label>
+          <label class="opcao"><input type="checkbox" name="hab"
+            value="equipe" {{HAB_EQUIPE}}> Trabalho em equipe</label>
+          <label class="opcao"><input type="checkbox" name="hab"
+            value="comunicacao" {{HAB_COMUNICACAO}}>
+            Comunicação</label>
+        </div>
+ 
+        <label for="outras">Outras (separe por vírgula)</label>
+        <input type="text" id="outras" name="outras"
+               value="{{OUTRAS}}" maxlength="100">
+ 
+        <p class="rotulo">Inglês</p>
+        <label class="opcao"><input type="radio" name="ingles"
+          value="nenhum" {{ING_NENHUM}}> Não informar</label>
+        <label class="opcao"><input type="radio" name="ingles"
+          value="basico" {{ING_BASICO}}> Básico</label>
+        <label class="opcao"><input type="radio" name="ingles"
+          value="intermediario" {{ING_INTERMEDIARIO}}>
+          Intermediário</label>
+        <label class="opcao"><input type="radio" name="ingles"
+          value="avancado" {{ING_AVANCADO}}> Avançado</label>
+      </fieldset>
+ 
+      <fieldset class="bloco">
+        <legend>6. Cor do currículo</legend>
+        <label class="opcao"><input type="radio" name="tema"
+          value="petroleo" {{TEMA_PETROLEO}}> Azul petróleo</label>
+        <label class="opcao"><input type="radio" name="tema"
+          value="vinho" {{TEMA_VINHO}}> Vinho</label>
+        <label class="opcao"><input type="radio" name="tema"
+          value="grafite" {{TEMA_GRAFITE}}> Grafite</label>
+      </fieldset>
+ 
+      <div class="acoes">
+        <button type="submit" name="acao" value="gerar"
+                class="botao">Gerar currículo</button>
+        <button type="submit" name="acao" value="exemplo"
+                class="botao secundario">Preencher com exemplo</button>
+        <a href="/" class="limpar">Limpar tudo</a>
+      </div>
+    </form>
+ 
+    <!-- 4. Resultado: o Python coloca o currículo aqui -->
+    <section id="resultado" class="resultado">
+      <h2>Meu currículo</h2>
+      {{CURRICULO}}
+    </section>
+  </main>
+ 
+  <!-- 5. Dicas e rodapé -->
+  <section id="dicas" class="dicas">
+    <h2>Dicas para um bom currículo</h2>
+    <ul>
+      <li>Use um e-mail com seu nome, sem apelidos.</li>
+      <li>Escreva frases curtas e sem erros de português.</li>
+      <li>Coloque projetos da escola: eles mostram o que
+          você sabe fazer.</li>
+      <li>Para salvar em PDF, aperte Ctrl + P e escolha
+          Salvar como PDF.</li>
+    </ul>
+  </section>
+ 
+  <footer class="rodape">
+    <p>Gerador de Currículo: projeto escolar com HTML,
+       CSS e Python.</p>
+    <p>Nenhum dado é salvo: tudo some ao fechar a página.</p>
+  </footer>
+ 
+</body>
+</html>
+

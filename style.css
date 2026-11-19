@@ -1,0 +1,360 @@
+/* Gerador de Currículo: identidade visual */
+ 
+/* 1. Variáveis de cor: mude aqui e o site inteiro muda */
+:root {
+  --petroleo: #0e5761;
+  --petroleo-escuro: #093e45;
+  --claro: #eaf2f3;
+  --texto: #1f2a2e;
+  --cinza: #5b6b70;
+  --borda: #c9d8db;
+  --branco: #ffffff;
+  --erro: #a61b29;
+  --ok: #1d7a46;
+}
+ 
+/* 2. Base da página */
+* {
+  box-sizing: border-box;
+}
+ 
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--texto);
+  background-color: #f5f8f8;
+  line-height: 1.5;
+}
+ 
+h1, h2 {
+  line-height: 1.2;
+}
+ 
+/* 3. Cabeçalho e menu com Flexbox */
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background-color: var(--petroleo-escuro);
+}
+ 
+.marca {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--branco);
+}
+ .marca span {
+  color: #9fd3d9;
+}
+ 
+.menu {
+  display: flex;
+  gap: 20px;
+}
+ 
+.menu a {
+  color: var(--branco);
+  text-decoration: none;
+}
+ 
+.menu a:hover {
+  text-decoration: underline;
+}
+ 
+/* 4. Apresentação */
+.apresentacao {
+  padding: 48px 32px;
+  text-align: center;
+  background-color: var(--petroleo);
+  color: var(--branco);
+}
+ 
+.apresentacao h1 {
+  margin: 0 0 12px;
+  font-size: 32px;
+}
+ 
+.apresentacao p {
+  max-width: 560px;
+  margin: 0 auto 24px;
+}
+ 
+/* 5. Botões */
+.botao {
+  display: inline-block;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--petroleo);
+  color: var(--branco);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+   cursor: pointer;
+}
+ 
+.apresentacao .botao {
+  background-color: var(--branco);
+  color: var(--petroleo);
+}
+ 
+.botao:hover {
+  background-color: var(--petroleo-escuro);
+}
+ 
+.botao.secundario {
+  background-color: var(--claro);
+  color: var(--petroleo);
+}
+ 
+/* 6. Duas colunas: formulário e resultado (Grid) */
+.conteudo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 32px auto;
+  padding: 0 32px;
+  align-items: start;
+}
+ 
+/* 7. Formulário */
+.bloco {
+  margin: 0 0 20px;
+  padding: 16px 20px;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  background-color: var(--branco);
+}
+ 
+.bloco legend {
+  padding: 0 8px;
+  font-weight: bold;
+  color: var(--petroleo);
+}
+ 
+label,
+.rotulo {
+  display: block;
+  margin: 12px 0 4px;
+  font-weight: bold;
+  font-size: 14px;
+}
+ 
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+ 
+input[type="text"]:focus,
+textarea:focus {
+  outline: 2px solid var(--petroleo);
+  border-color: var(--petroleo);
+}
+ 
+.duas-colunas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.opcao {
+  display: inline-block;
+  margin: 4px 16px 4px 0;
+  font-weight: normal;
+}
+ 
+.grade-opcoes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+ 
+.dica-campo {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--cinza);
+}
+ 
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+ 
+.limpar {
+  color: var(--cinza);
+}
+ 
+/* 8. Mensagens que o Python envia */
+.mensagem {
+  margin: 0 0 12px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+ 
+.mensagem.erro {
+  background-color: #fbe9eb;
+  color: var(--erro);
+}
+ 
+.mensagem.ok {
+  background-color: #e6f4ec;
+  color: var(--ok);
+}
+ 
+.mensagem.info {
+  background-color: var(--claro);
+  color: var(--petroleo);
+}
+ 
+/* 9. Área do resultado */
+.resultado {
+  position: sticky;
+  top: 16px;
+}
+ 
+.resultado h2 {
+  margin-top: 0;
+  color: var(--petroleo);
+}
+ 
+.vazio {
+  padding: 32px;
+  border: 2px dashed var(--borda);
+  border-radius: 8px;
+  text-align: center;
+  color: var(--cinza);
+}
+ 
+/* 10. O currículo gerado e os três temas de cor */
+.curriculo {
+  --cor-cv: #0e5761;
+  padding: 32px;
+  border-radius: 8px;
+  background-color: var(--branco);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+ 
+.curriculo.tema-vinho {
+  --cor-cv: #7a1f33;
+}
+ 
+.curriculo.tema-grafite {
+  --cor-cv: #3a3f44;
+}
+ 
+.cv-topo {
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--cor-cv);
+}
+ 
+.cv-topo h3 {
+  margin: 0;
+  font-size: 26px;
+  color: var(--cor-cv);
+}
+ 
+.cv-cargo {
+  margin: 4px 0 8px;
+  font-weight: bold;
+}
+ 
+.cv-contato {
+  margin: 0;
+  font-size: 14px;
+  color: var(--cinza);
+}
+ 
+.curriculo h4 {
+  margin: 20px 0 6px;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--cor-cv);
+}
+ 
+.curriculo p {
+  margin: 0 0 6px;
+}
+ 
+.cv-habilidades {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+ 
+.cv-habilidades li {
+  padding: 4px 12px;
+  border: 1px solid var(--cor-cv);
+  border-radius: 20px;
+  font-size: 14px;
+  color: var(--cor-cv);
+}
+ 
+/* 11. Dicas e rodapé */
+.dicas {
+  max-width: 1200px;
+  margin: 0 auto 32px;
+  padding: 0 32px;
+}
+ 
+.dicas h2 {
+  color: var(--petroleo);
+}
+ 
+.rodape {
+  padding: 20px 32px;
+  text-align: center;
+  background-color: var(--petroleo-escuro);
+  color: var(--branco);
+  font-size: 14px;
+}
+ 
+.rodape p {
+  margin: 4px 0;
+}
+ 
+/* 12. Telas menores: uma coluna só */
+@media (max-width: 800px) {
+  .topo {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .conteudo,
+  .duas-colunas {
+    grid-template-columns: 1fr;
+  }
+  .resultado {
+    position: static;
+  }
+}
+ 
+/* 13. Impressão: só o currículo vai para o papel */
+@media print {
+  .topo, .apresentacao, .formulario, .dicas, .rodape,
+  .resultado h2 {
+    display: none;
+  }
+  body, .conteudo {
+    display: block;
+    margin: 0;
+    padding: 0;
+    background-color: var(--branco);
+  }
+  .curriculo {
+    box-shadow: none;
+  }
+}
